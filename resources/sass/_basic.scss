@@ -80,6 +80,11 @@ table {
 .contents {
   display: contents;
 }
+.container {
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  padding: 0 10px;
+}
 
 /* breakpoints */
 $breakpoints: (
@@ -87,3 +92,6 @@ $breakpoints: (
   "w-768": "screen and (max-width: 768px)",
   "w-520": "screen and (max-width: 520px)",
 ) !default;
+
+/* 基本カラー */
+$color-blue: #4b90ff; // 鮮やかな青

@@ -1,2 +1,59 @@
 @import "_basic";
 @import "_mixin";
+
+/* 登録画面＆ログイン画面 */
+.auth-form {
+  width: min(100%, 761px);
+  margin: 25px auto 0;
+  padding: 10px 100px 35px;
+  background-color: #fff;
+  &-wrap {
+    padding-top: 50px;
+    background-color: #f5f5f5;
+    height: 100vh;
+  }
+  &__logo {
+    width: min(100%, 211px);
+    margin: 0 auto;
+  }
+  &__heading {
+    font-size: 36px;
+    text-align: center;
+  }
+  &__item {
+    margin-bottom: 20px;
+    label {
+      font-size: 14px;
+    }
+    input {
+      width: 100%;
+      @include set-border(1px, solid, #909090);
+      height: 33px;
+      border-radius: 5px;
+      font-size: 14px;
+      padding-left: 0.5em;
+    }
+    button {
+      width: 100%;
+      background-color: $color-blue;
+      color: #fff;
+      font-size: 14px;
+      border-radius: 5px;
+      height: 33px;
+      border: none;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    &.flex-col {
+      row-gap: 5px;
+      a {
+        font-size: 14px;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
