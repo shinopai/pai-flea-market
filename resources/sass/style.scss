@@ -57,3 +57,13 @@
     }
   }
 }
+
+/* エラーメッセージ */
+.err-msg {
+  font-size: 12px;
+  margin-top: 3px;
+  li {
+    color: #ff3a31;
+    font-weight: bold;
+  }
+}

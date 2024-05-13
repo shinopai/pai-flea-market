@@ -7,14 +7,14 @@
         <h2 class="auth-form__heading">ログイン</h2>
         <!-- Email Address -->
         <div class="auth-form__item">
-            <x-input-label for="email" :value="__('メールアドレス')" /><br>
+            <x-input-label for="email" :value="__('Email')" /><br>
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
         <div class="auth-form__item">
-            <x-input-label for="password" :value="__('パスワード')" /><br>
+            <x-input-label for="password" :value="__('Password')" /><br>
 
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
@@ -26,7 +26,7 @@
 
         <div class="auth-form__item">
             <x-primary-button class="ms-3">
-                {{ __('ログイン') }}
+                {{ __('Log in') }}
             </x-primary-button>
         </div>
 
