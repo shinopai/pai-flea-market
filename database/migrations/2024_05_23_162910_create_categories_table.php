@@ -13,6 +13,7 @@ return new class () extends Migration {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name', 30)->comment('カテゴリー名');
+            $table->enum('sub_name', [])->comment('サブカテゴリ―名');
             $table->timestamps();
         });
     }
