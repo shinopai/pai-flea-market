@@ -15,7 +15,8 @@
     />
 
     <!-- Scripts -->
-    @vite(['resources/sass/style.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/style.scss','resources/css/app.css',
+    'resources/js/app.js'])
   </head>
   <body>
     <!-- ナビゲーション -->
