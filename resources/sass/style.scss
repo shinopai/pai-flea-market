@@ -1,7 +1,7 @@
 @import "_basic";
 @import "_mixin";
 
-/* 登録画面＆ログイン画面 */
+// 登録画面＆ログイン画面
 .auth-form {
   width: min(100%, 761px);
   margin: 25px auto 0;
@@ -58,12 +58,67 @@
   }
 }
 
-/* エラーメッセージ */
+// エラーメッセージ
 .err-msg {
   font-size: 12px;
   margin-top: 3px;
   li {
     color: #ff3a31;
     font-weight: bold;
+  }
+}
+
+// ヘッダー
+.header {
+  padding: 0 15px;
+  height: 100px;
+  background-color: #fefdff;
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.4);
+  &__inner {
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    img {
+      width: 180px;
+    }
+    div {
+      &.item {
+        align-items: center;
+        column-gap: 25px;
+        div {
+          &:first-child {
+          }
+          &:last-child {
+            position: relative;
+            font-size: 14px;
+            button {
+              background-color: transparent;
+              border: none;
+              display: flex;
+              align-items: center;
+              column-gap: 5px;
+              div {
+                &:first-child {
+                  font-size: 14px;
+                }
+                &:last-child {
+                  width: 30px;
+                  @include centering;
+                }
+              }
+            }
+            div {
+              &.absolute {
+                position: absolute;
+                @include set-border(1px, solid, #333);
+                width: 100%;
+                padding: 0.5em;
+                background-color: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
