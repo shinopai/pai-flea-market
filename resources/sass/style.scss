@@ -58,6 +58,18 @@
   }
 }
 
+// 下層ページ基本スタイル
+.page-wrap {
+  width: min(100%, 1000px);
+  padding: 45px 10px 0;
+  margin: 0 auto;
+  .page-heading {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
 // エラーメッセージ
 .err-msg {
   font-size: 12px;
@@ -119,6 +131,91 @@
             }
           }
         }
+      }
+    }
+  }
+}
+
+// 「出品」ボタン
+.listing-btn {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  background-color: $color-blue;
+  width: 70px;
+  height: 70px;
+  border-radius: 100vh;
+  @include centering;
+  flex-direction: column;
+  p {
+    font-size: 16px;
+    color: #fff;
+  }
+  i {
+    font-size: 16px;
+    color: #fff;
+  }
+}
+
+// 商品出品画面
+.items-create {
+  &-form {
+    width: min(100%, 556px);
+    margin: 50px auto 0;
+    &__item {
+      &:not(:first-child) {
+        margin-bottom: 35px;
+      }
+      label {
+        display: block;
+        margin-bottom: 3px;
+        font-size: 14px;
+        &.image {
+          width: min(100%, 289px);
+          span {
+            font-weight: bold;
+            font-size: 14px;
+            background-color: #c1c8ff;
+            @include set-border(1px, solid, #909090);
+            width: 100%;
+            aspect-ratio: 289/211;
+            cursor: pointer;
+            @include centering;
+          }
+          input[type="file"] {
+            display: none;
+          }
+        }
+      }
+      input[type="text"],
+      input[type="submit"],
+      select,
+      textarea {
+        width: 100%;
+        font-size: 14px;
+        border-radius: 10px;
+      }
+      input[type="text"] {
+        @include set-border(1px, solid, #909090);
+        height: 35px;
+        padding-left: 1em;
+      }
+      input[type="submit"] {
+        background-color: $color-blue;
+        color: #fff;
+        font-size: 14px;
+        height: 35px;
+        @include centering;
+        cursor: pointer;
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+      select {
+        height: 35px;
+      }
+      textarea {
+        resize: none;
       }
     }
   }

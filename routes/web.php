@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,6 +16,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // 商品関連
+    Route::prefix('items')->group(function () {
+        Route::name('items.')->group(function () {
+            Route::controller(ItemController::class)->group(function () {
+                // 出品画面
+                Route::get('/create', 'create')->name('create');
+                // 出品
+                Route::get('/store', 'store')->name('store');
+            });
+        });
+    });
 });
 
 require __DIR__.'/auth.php';
