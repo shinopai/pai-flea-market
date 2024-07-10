@@ -218,5 +218,14 @@
         resize: none;
       }
     }
+    .preview {
+      width: min(100%, 400px);
+      margin-top: 10px;
+      display: none;
+      figcaption {
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
   }
 }

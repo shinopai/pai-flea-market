@@ -9,6 +9,10 @@
           <span>写真</span>
           <input type="file" name="image" id="image">
         </label>
+        <figure class="preview" id="preview">
+          <figcaption>プレビュー</figcaption>
+          <img src="" id="preview_image" alt="">
+        </figure>
       </div>
       <div class="items-create-form__item">
         <label for="name">商品名</label>
@@ -68,4 +72,26 @@
       </div>
     </form>
   </div>
+
+  <script>
+    // 商品画像のプレビュー機能
+    function previewImage() {
+      const input = document.getElementById('image')
+      const preview = document.getElementById('preview')
+      const previewImage = document.getElementById('preview_image')
+
+      input.addEventListener('change', (event) => {
+        const [file] = event.target.files
+
+        if(file){
+          previewImage.setAttribute('src', URL.createObjectURL(file))
+          preview.style.display = 'block'
+        }else{
+          preview.style.display = 'none'
+        }
+      })
+    }
+
+    previewImage()
+  </script>
 </x-app-layout>
