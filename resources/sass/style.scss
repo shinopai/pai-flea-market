@@ -61,7 +61,7 @@
 // 下層ページ基本スタイル
 .page-wrap {
   width: min(100%, 1000px);
-  padding: 45px 10px 0;
+  padding: 45px 10px 20px;
   margin: 0 auto;
   .page-heading {
     font-size: 36px;
@@ -164,6 +164,46 @@
   i {
     font-size: 16px;
     color: #fff;
+  }
+}
+
+// 商品一覧画面
+.items {
+  justify-content: flex-start;
+  gap: 20px 56px;
+  &__item {
+    width: min(30%, 289px);
+    figure {
+      aspect-ratio: 289/164;
+      position: relative;
+      @include set-border(1px, solid, #909090);
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+      span {
+        position: absolute;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.48);
+        font-size: 14px;
+        color: #fff;
+        padding: 0.1em 0.5em;
+        bottom: 15px;
+        left: 0;
+      }
+    }
+    div {
+      @include set-border(1px, solid, #909090);
+      border-top: none;
+      padding: 12px 20px;
+      p {
+        font-size: 12px;
+      }
+      h3 {
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
   }
 }
 

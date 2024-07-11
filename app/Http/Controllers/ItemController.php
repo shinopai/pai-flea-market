@@ -12,7 +12,7 @@ class ItemController extends Controller
 {
     public function index()
     {
-        $items = Item::all();
+        $items = Item::orderBy('id', 'desc')->get();
 
         return view('items.index', compact('items'));
     }
@@ -57,6 +57,6 @@ class ItemController extends Controller
             'status_id' => $statusId
         ]);
 
-        return redirect()->route('dashboard')->with('flash', '新しい商品を登録しました。');
+        return redirect()->route('items.index')->with('flash', '新しい商品を登録しました。');
     }
 }

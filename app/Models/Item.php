@@ -17,4 +17,15 @@ class Item extends Model
         'category_id',
         'status_id'
     ];
+
+    // リレーション
+    public function category()
+    {
+        return $this->belongsTo(SubCategory::class);
+    }
+
+    public function status()
+    {
+        return $this->belongsTo(Status::class);
+    }
 }

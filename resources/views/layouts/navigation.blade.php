@@ -2,7 +2,7 @@
     <!-- Primary Navigation Menu -->
     <div class="header__inner flex">
         <!-- Logo -->
-        <a href="{{ route('dashboard') }}" class="contents">
+        <a href="{{ route('items.index') }}" class="contents">
             <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
         </a>
 
