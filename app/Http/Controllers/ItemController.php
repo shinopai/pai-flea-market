@@ -10,6 +10,13 @@ use App\Http\Requests\ItemRequest;
 
 class ItemController extends Controller
 {
+    public function index()
+    {
+        $items = Item::all();
+
+        return view('items.index', compact('items'));
+    }
+
     public function create()
     {
         $statuses = Status::all();
@@ -28,22 +35,26 @@ class ItemController extends Controller
         $name = $request->input('name');
         $introduction = $request->input('introduction');
         $price = $request->input('price');
-        $image = $request->file('image');
-        $category_id = $request->input('category_id');
-        $status_id = $request->input('status_id');
+        $categoryId = $request->input('category_id');
+        $statusId = $request->input('status_id');
+
+        $image = '';
 
         // 画像の処理
         if($request->hasFile('image') && $image->isValid()) {
-            $image = $image->getClientOriginalName();
+            $imageName = $request->file('image')->getClientOriginalName();
+            $image = $request->file('image')->storeAs('images/item', $imageName, 'public');
+        } else {
+            $image = null;
         }
 
         Item::create([
             'name' => $name,
             'introduction' => $introduction,
             'price' => $price,
-            'image' => $request->file('image')->storeAs('images/item', $image, 'public'),
-            'category_id' => $category_id,
-            'status_id' => $status_id
+            'image' => $image,
+            'category_id' => $categoryId,
+            'status_id' => $statusId
         ]);
 
         return redirect()->route('dashboard')->with('flash', '新しい商品を登録しました。');

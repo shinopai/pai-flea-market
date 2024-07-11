@@ -21,6 +21,8 @@ Route::middleware('auth')->group(function () {
     Route::prefix('items')->group(function () {
         Route::name('items.')->group(function () {
             Route::controller(ItemController::class)->group(function () {
+                // 商品一覧画面
+                Route::get('/', 'index')->name('index');
                 // 出品画面
                 Route::get('/create', 'create')->name('create');
                 // 出品
