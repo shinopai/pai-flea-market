@@ -24,6 +24,11 @@
 
     <!-- メイン -->
     <main>
+      @if(session('flash'))
+      <p class="flash-msg">
+        {{ session("flash") }}
+      </p>
+      @endif
       {{ $slot }}
     </main>
   </body>

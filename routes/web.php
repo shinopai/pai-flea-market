@@ -24,7 +24,7 @@ Route::middleware('auth')->group(function () {
                 // 出品画面
                 Route::get('/create', 'create')->name('create');
                 // 出品
-                Route::get('/store', 'store')->name('store');
+                Route::post('/store', 'store')->name('store');
             });
         });
     });
