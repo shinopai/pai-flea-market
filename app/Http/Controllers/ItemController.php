@@ -59,4 +59,9 @@ class ItemController extends Controller
 
         return redirect()->route('items.index')->with('flash', '新しい商品を登録しました。');
     }
+
+    public function show(Item $item)
+    {
+        return view('items.show', compact('item'));
+    }
 }

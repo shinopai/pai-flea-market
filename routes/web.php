@@ -23,6 +23,8 @@ Route::middleware('auth')->group(function () {
             Route::controller(ItemController::class)->group(function () {
                 // 商品一覧画面
                 Route::get('/', 'index')->name('index');
+                // 商品詳細画面
+                Route::get('/show/{item}', 'show')->name('show');
                 // 出品画面
                 Route::get('/create', 'create')->name('create');
                 // 出品
