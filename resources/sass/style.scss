@@ -105,12 +105,41 @@
     }
     div {
       &.item {
+        justify-content: flex-end;
         align-items: center;
         column-gap: 25px;
-        div {
-          &:first-child {
+        width: 80%;
+        .form {
+          width: min(59%, 581px);
+          position: relative;
+          display: flex;
+          select {
+            width: min(24%, 136px);
+            height: 42px;
+            font-size: 14px;
+            @include set-border(1px, solid, #909090);
+            border-radius: 4px 0 0 4px;
+            background-color: #d0d0d0;
           }
-          &:last-child {
+          input[type="text"] {
+            width: min(76%, 445px);
+            height: 42px;
+            font-size: 14px;
+            @include set-border(1px, solid, #909090);
+            border-radius: 0 4px 4px 0;
+          }
+          button {
+            width: 26px;
+            height: 26px;
+            position: absolute;
+            right: 12px;
+            top: calc(50% - 26px / 2);
+            img {
+            }
+          }
+        }
+        div {
+          &:last-of-type {
             position: relative;
             font-size: 14px;
             button {

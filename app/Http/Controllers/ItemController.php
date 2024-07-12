@@ -64,4 +64,20 @@ class ItemController extends Controller
     {
         return view('items.show', compact('item'));
     }
+
+    public function search(Request $request)
+    {
+        $searchCategory = $request->input('sc');
+        $searchText = $request->input('st');
+
+        $q = Item::query()->where('category_id', $searchCategory);
+
+        if(!empty($searchText)) {
+            $q->where('name', 'LIKE', '%'.$searchText.'%')->orWhere('introduction', 'LIKE', '%'.$searchText.'%');
+        }
+
+        $items = $q->get();
+
+        return view('items.search', compact('items'));
+    }
 }

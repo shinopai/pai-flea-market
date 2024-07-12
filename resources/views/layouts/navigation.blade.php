@@ -1,3 +1,13 @@
+@php
+// 検索エリアのselectを動的に生成する為の情報を取得
+$categories = App\Models\SubCategory::all();
+
+$ladies = $categories->where('category_id', 1);
+$mens = $categories->where('category_id', 2);
+$baby_kids = $categories->where('category_id', 3);
+$others = $categories->where('category_id', 4);
+@endphp
+
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100 header">
     <!-- Primary Navigation Menu -->
     <div class="header__inner flex">
@@ -8,7 +18,42 @@
 
         <!-- Settings Dropdown -->
         <div class="item flex">
-            <div>検索エリア</div>
+            <form action="{{ route('items.search') }}" method="GET" class="form">
+                <select name="sc">
+                    <optgroup label="レディース">
+                        @foreach ($ladies as $item)
+                        <option value="{{ $item->id }}" @if($item->id === (int)old('category_id')) selected @endif>
+                            {{ $item->name }}
+                        </option>
+                        @endforeach
+                    </optgroup>
+                    <optgroup label="メンズ">
+                        @foreach ($mens as $item)
+                        <option value="{{ $item->id }}" @if($item->id === (int)old('category_id')) selected @endif>
+                            {{ $item->name }}
+                        </option>
+                        @endforeach
+                    </optgroup>
+                    <optgroup label="ベビー/キッズ">
+                        @foreach ($baby_kids as $item)
+                        <option value="{{ $item->id }}" @if($item->id === (int)old('category_id')) selected @endif>
+                            {{ $item->name }}
+                        </option>
+                        @endforeach
+                    </optgroup>
+                    <optgroup label="その他">
+                        @foreach ($others as $item)
+                        <option value="{{ $item->id }}" @if($item->id === (int)old('category_id')) selected @endif>
+                            {{ $item->name }}
+                        </option>
+                        @endforeach
+                    </optgroup>
+                </select>
+                <input type="text" name="st" id="">
+                <button type="submit">
+                    <img src="{{ asset('img/icn-search.webp') }}" alt="検索">
+                </button>
+            </form>
             <x-dropdown align="right" width="48">
                 <x-slot name="trigger">
                     <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
@@ -31,8 +76,7 @@
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
 
-                        <x-dropdown-link :href="route('logout')"
-                                onclick="event.preventDefault();
+                        <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
                                             this.closest('form').submit();">
                             {{ __('Log Out') }}
                         </x-dropdown-link>

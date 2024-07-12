@@ -29,6 +29,8 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', 'create')->name('create');
                 // 出品
                 Route::post('/store', 'store')->name('store');
+                // 商品検索
+                Route::get('/search', 'search')->name('search');
             });
         });
     });
