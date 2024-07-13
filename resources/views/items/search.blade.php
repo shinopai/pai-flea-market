@@ -36,5 +36,6 @@
       </a>
       @endforeach
     </div>
+    {{ $items->links() }}
   </div>
 </x-app-layout>

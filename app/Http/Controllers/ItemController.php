@@ -12,7 +12,7 @@ class ItemController extends Controller
 {
     public function index()
     {
-        $items = Item::orderBy('id', 'desc')->get();
+        $items = Item::orderBy('id', 'desc')->paginate(30);
 
         return view('items.index', compact('items'));
     }
@@ -80,7 +80,7 @@ class ItemController extends Controller
             $q->where('name', 'LIKE', '%'.$searchText.'%')->orWhere('introduction', 'LIKE', '%'.$searchText.'%');
         }
 
-        $items = $q->get();
+        $items = $q->paginate(30);
 
         return view('items.search', compact('items'));
     }
