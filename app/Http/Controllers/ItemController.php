@@ -70,7 +70,11 @@ class ItemController extends Controller
         $searchCategory = $request->input('sc');
         $searchText = $request->input('st');
 
-        $q = Item::query()->where('category_id', $searchCategory);
+        $q = Item::query();
+
+        if(!empty($searchCategory)) {
+            $q->where('category_id', $searchCategory);
+        }
 
         if(!empty($searchText)) {
             $q->where('name', 'LIKE', '%'.$searchText.'%')->orWhere('introduction', 'LIKE', '%'.$searchText.'%');

@@ -20,6 +20,7 @@ $others = $categories->where('category_id', 4);
         <div class="item flex">
             <form action="{{ route('items.search') }}" method="GET" class="form">
                 <select name="sc">
+                    <option value="" selected>選択してください</option>
                     <optgroup label="レディース">
                         @foreach ($ladies as $item)
                         <option value="{{ $item->id }}" @if($item->id === (int)old('category_id')) selected @endif>
@@ -49,7 +50,7 @@ $others = $categories->where('category_id', 4);
                         @endforeach
                     </optgroup>
                 </select>
-                <input type="text" name="st" id="">
+                <input type="text" name="st" placeholder="商品名か商品説明で検索" value="{{ old('st') }}">
                 <button type="submit">
                     <img src="{{ asset('img/icn-search.webp') }}" alt="検索">
                 </button>
