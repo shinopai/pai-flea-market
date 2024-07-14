@@ -36,6 +36,6 @@
       </a>
       @endforeach
     </div>
-    {{ $items->links() }}
+    {{ $items->appends(request()->query())->links() }}
   </div>
 </x-app-layout>
