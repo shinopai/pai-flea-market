@@ -28,4 +28,9 @@ class Item extends Model
     {
         return $this->belongsTo(Status::class);
     }
+
+    public function purchase()
+    {
+        return $this->hasOne(Purchase::class);
+    }
 }

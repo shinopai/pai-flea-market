@@ -274,20 +274,17 @@ nav[role="navigation"] {
     text-align: center;
     margin-top: 30px;
   }
-  &__form {
-    margin-top: 30px;
-    button {
-      width: min(100%, 554px);
-      height: 42px;
-      @include centering;
-      background-color: #4b90ff;
-      color: #fff;
-      font-size: 14px;
-      border-radius: 10px;
-      margin: 0 auto;
-      &:hover {
-        opacity: 0.8;
-      }
+  &__btn {
+    width: min(100%, 554px);
+    height: 42px;
+    @include centering;
+    background-color: #4b90ff;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 10px;
+    margin: 30px auto 0;
+    &:hover {
+      opacity: 0.8;
     }
   }
   &__txt {

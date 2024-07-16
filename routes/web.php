@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\PurchaseController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -31,6 +32,18 @@ Route::middleware('auth')->group(function () {
                 Route::post('/store', 'store')->name('store');
                 // 商品検索
                 Route::get('/search', 'search')->name('search');
+            });
+        });
+    });
+
+    // 購入関連
+    Route::prefix('purchases')->group(function () {
+        Route::name('purchases.')->group(function () {
+            Route::controller(PurchaseController::class)->group(function () {
+                // 商品購入画面
+                Route::get('/', 'index')->name('index');
+                // 商品購入
+                Route::post('/store', 'store')->name('store');
             });
         });
     });
