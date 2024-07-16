@@ -120,6 +120,10 @@
             @include set-border(1px, solid, #909090);
             border-radius: 4px 0 0 4px;
             background-color: #d0d0d0;
+            @include mq(w-768) {
+              border-radius: 4px;
+              width: min(100%, 136px);
+            }
           }
           input[type="text"] {
             width: min(76%, 445px);
@@ -127,6 +131,10 @@
             font-size: 14px;
             @include set-border(1px, solid, #909090);
             border-radius: 0 4px 4px 0;
+            @include mq(w-768) {
+              border-radius: 4px;
+              width: 100%;
+            }
           }
           button {
             width: 26px;
@@ -136,6 +144,15 @@
             top: calc(50% - 26px / 2);
             img {
             }
+            @include mq(w-768) {
+              top: initial;
+              bottom: 8px;
+            }
+          }
+          @include mq(w-768) {
+            width: 100%;
+            flex-direction: column;
+            row-gap: 10px;
           }
         }
         div {
@@ -168,10 +185,25 @@
                 background-color: #fff;
               }
             }
+            @include mq(w-768) {
+              margin-left: auto;
+            }
           }
+        }
+        @include mq(w-768) {
+          flex-direction: column;
+          width: 100%;
         }
       }
     }
+    @include mq(w-768) {
+      flex-direction: column;
+      row-gap: 20px;
+    }
+  }
+  @include mq(w-768) {
+    height: initial;
+    padding: 15px;
   }
 }
 
@@ -186,6 +218,7 @@
   border-radius: 100vh;
   @include centering;
   flex-direction: column;
+  z-index: 1;
   p {
     font-size: 16px;
     color: #fff;
@@ -233,6 +266,13 @@
         font-weight: bold;
       }
     }
+    @include mq(w-768) {
+      width: 48%;
+    }
+  }
+  @include mq(w-960) {
+    justify-content: space-evenly;
+    gap: 20px 0;
   }
 }
 
