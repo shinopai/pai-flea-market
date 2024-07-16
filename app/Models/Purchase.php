@@ -9,6 +9,11 @@ class Purchase extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id',
+        'item_id'
+    ];
+
     // リレーション
     public function user()
     {

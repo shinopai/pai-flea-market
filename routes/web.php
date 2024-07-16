@@ -43,7 +43,7 @@ Route::middleware('auth')->group(function () {
                 // 商品購入画面
                 Route::get('/', 'index')->name('index');
                 // 商品購入
-                Route::post('/store', 'store')->name('store');
+                Route::post('/store/{user}/{item}', 'store')->name('store');
             });
         });
     });

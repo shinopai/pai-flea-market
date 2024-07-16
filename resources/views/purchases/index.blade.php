@@ -5,15 +5,9 @@
       <div class="items-show__content flex">
         <figure>
           @empty($item->image)
-          <img
-            src="{{ asset('img/item_sample.webp') }}"
-            alt="商品サンプル画像"
-          />
+          <img src="{{ asset('img/item_sample.webp') }}" alt="商品サンプル画像" />
           @else
-          <img
-            src="{{ asset('/storage/'.$item->image) }}"
-            alt="{{ $item->name }}"
-          />
+          <img src="{{ asset('/storage/'.$item->image) }}" alt="{{ $item->name }}" />
           @endempty
         </figure>
         <table>
@@ -32,7 +26,8 @@
       <p class="items-show__price">
         &yen;&nbsp;{{ number_format($item->price) }}
       </p>
-      <form action="" method="POST">
+      <form action="{{ route('purchases.store', ['user' => $user->id, 'item' => $item->id]) }}" method="POST">
+        @csrf
         <button type="submit" class="items-show__btn">購入する</button>
       </form>
     </div>
